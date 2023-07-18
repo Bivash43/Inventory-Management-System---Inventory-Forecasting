@@ -57,11 +57,12 @@
               <div class="row mb-3">
                  <label for="example-text-input" class="col-sm-2 col-form-label">  </label>
                 <div class="col-sm-10">
-                    <img id="showImage" class="rounded avatar-lg" src="{{ isset($customer) ? asset($customer->customer_image) : ((!empty($editData->profile_image))? url('upload/admin_images/'.$editData->profile_image):url('upload/no_image.jpg')) }}" alt="Card image cap">
+                    <img id="showImage" class="rounded avatar-lg" src="{{((!empty($customer))? url($customer->customer_image):url('upload/no_image.jpg')) }}" alt="Card image cap">
                 </div>
             </div>
 
-<input type="submit" class="btn btn-info waves-effect waves-light" value="{{ isset($customer) ? 'Update customer' : 'Add customer'}}">
+                <input type="submit" class="btn btn-info waves-effect waves-light" value="{{ isset($customer) ? 'Update customer' : 'Add customer'}}">
+                <button type="reset" class="btn btn-danger waves-effect waves-light">Reset</button>
             </form>
 
 
