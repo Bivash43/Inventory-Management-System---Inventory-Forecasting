@@ -79,11 +79,6 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with($notification);
     }
 
-    // public function show($id)
-    // {
-    //     dd($id);
-    // }
-
     public function destroy($id)
     {
         Customer::findOrFail($id)->delete();

@@ -5,9 +5,11 @@ use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
+use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Models\LinearRegression;
+use App\Models\Product;
 
 Route::get('/', function () {
     return view('welcome');
@@ -66,6 +68,15 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/category/edit/{id}', 'edit')->name('category.edit');
     Route::put('/category/update/{id}', 'update')->name('category.update');
     Route::get('/category/destroy/{id}', 'destroy')->name('category.destroy');
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product', 'index')->name('product.index');
+    Route::get('/product/add', 'create')->name('product.create');
+    Route::post('/product/store', 'store')->name('product.store');
+    Route::get('/product/edit/{id}', 'edit')->name('product.edit');
+    Route::put('/product/update/{id}', 'update')->name('product.update');
+    Route::get('/product/destroy/{id}', 'destroy')->name('product.destroy');
 });
 
 
