@@ -5,6 +5,7 @@ use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
+use App\Http\Controllers\Pos\UnitController;
 use App\Models\LinearRegression;
 
 Route::get('/', function () {
@@ -47,6 +48,17 @@ Route::controller(CustomerController::class)->group(function () {
     Route::put('/customer/update/{id}', 'update')->name('customer.update');
     Route::get('/customer/destroy/{id}', 'destroy')->name('customer.destroy');
 });
+
+Route::controller(UnitController::class)->group(function () {
+    Route::get('/unit', 'index')->name('unit.index');
+    Route::get('/unit/add', 'create')->name('unit.create');
+    Route::post('/unit/store', 'store')->name('unit.store');
+    Route::get('/unit/edit/{id}', 'edit')->name('unit.edit');
+    Route::put('/unit/update/{id}', 'update')->name('unit.update');
+    Route::get('/unit/destroy/{id}', 'destroy')->name('unit.destroy');
+});
+
+
 
 
 Route::get('/dashboard', function () {

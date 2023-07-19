@@ -12,12 +12,12 @@
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="{{ route('dashboard') }}" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo-sm-light" height="22">
+                                    <p alt="logo-sm-light" style="color: white; margin-top:15px;" height="22"><b>IMS</b></p>
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('backend/assets/images/logo-light.png') }}" alt="logo-light" height="20">
+                                    <p alt="logo-light" style="color: white; margin-top:15px;"  height="20"><b>Inventory Management</b></p>
                                 </span>
                             </a>
                         </div>
@@ -34,7 +34,7 @@
         </div>
     </form>
 
-    
+
 </div>
 
 <div class="d-flex">
@@ -72,8 +72,8 @@
         </div>
     </div>
 
-                        
-            
+
+
                     </div>
                 </div>
             </header>
