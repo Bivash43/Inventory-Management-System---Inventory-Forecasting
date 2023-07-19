@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
@@ -56,6 +57,15 @@ Route::controller(UnitController::class)->group(function () {
     Route::get('/unit/edit/{id}', 'edit')->name('unit.edit');
     Route::put('/unit/update/{id}', 'update')->name('unit.update');
     Route::get('/unit/destroy/{id}', 'destroy')->name('unit.destroy');
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category', 'index')->name('category.index');
+    Route::get('/category/add', 'create')->name('category.create');
+    Route::post('/category/store', 'store')->name('category.store');
+    Route::get('/category/edit/{id}', 'edit')->name('category.edit');
+    Route::put('/category/update/{id}', 'update')->name('category.update');
+    Route::get('/category/destroy/{id}', 'destroy')->name('category.destroy');
 });
 
 

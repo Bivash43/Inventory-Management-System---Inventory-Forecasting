@@ -49,6 +49,16 @@
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-pages-line"></i>
+                                    <span>Manage Category</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('category.index') }}">All Category</a></li>
+                                </ul>
+                            </li>
+
                             <li class="menu-title">Pages</li>
 
                             <li>
