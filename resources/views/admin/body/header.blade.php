@@ -17,6 +17,7 @@
                                     <p alt="logo-sm-light" style="color: white; margin-top:15px;" height="22"><b>IMS</b></p>
                                 </span>
                                 <span class="logo-lg">
+
                                     <p alt="logo-light" style="color: white; margin-top:15px;"  height="20"><b>Inventory Management</b></p>
                                 </span>
                             </a>

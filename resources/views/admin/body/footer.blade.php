@@ -2,11 +2,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                 EasyLearning © Upcube.
+                                © 2023, Bivash_M
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by EasyLearning
+                                    Developed by <i class="mdi mdi-heart text-danger"></i><a href="www.linkedin.com/in/bivash-magar-connect">Bivash Thapa Magar</a>
                                 </div>
                             </div>
                         </div>
