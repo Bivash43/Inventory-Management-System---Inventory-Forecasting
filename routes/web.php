@@ -8,8 +8,11 @@ use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
+use App\Models\Category;
+use App\Models\Customer;
 use App\Models\LinearRegression;
 use App\Models\Product;
+use App\Models\Supplier;
 
 Route::get('/', function () {
     return view('welcome');
@@ -83,7 +86,11 @@ Route::controller(ProductController::class)->group(function () {
 
 
 Route::get('/dashboard', function () {
-    return view('admin.index');
+    $suppliers = Supplier::all();
+    $customers = Customer::all();
+    $products = Product::all();
+    $categories = Category::all();
+    return view('admin.index', compact('suppliers', 'customers', 'products', 'categories'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

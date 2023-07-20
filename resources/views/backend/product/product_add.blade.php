@@ -32,7 +32,7 @@
                     <select name="supplier_id" class="form-select" aria-label="Default select example">
                         <option value="{{ isset($product) ? $product->supplier_id : old('supplier_id') }}">Select Supplier</option>
                         @foreach ($suppliers as $supplier)
-                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                        <option value="{{ $supplier->id }}" {{ $supplier->id==$product->supplier_id ? 'selected' : '' }}>{{ $supplier->name }}</option>
                         @endforeach
                         </select>
                 </div>
@@ -45,7 +45,7 @@
                     <select name="unit_id" class="form-select" aria-label="Default select example">
                         <option value="{{ isset($product) ? $product->unit_id : old('unit_id') }}">Select Unit</option>
                         @foreach ($units as $unit)
-                        <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                        <option value="{{ $unit->id }}" {{ $unit->id==$product->unit_id ? 'selected' : '' }}>{{ $unit->name }}</option>
                         @endforeach
                         </select>
                 </div>
@@ -58,7 +58,7 @@
                     <select name="category_id" class="form-select" aria-label="Default select example">
                         <option value="{{ isset($product) ? $product->category_id : old('category_id') }}">Select Category</option>
                         @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{ $unit->id==$product->unit_id ? 'selected' : '' }}>{{ $category->name }}</option>
                         @endforeach
                         </select>
                 </div>

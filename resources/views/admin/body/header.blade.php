@@ -14,11 +14,11 @@
 
                             <a href="{{ route('dashboard') }}" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <p alt="logo-sm-light" style="color: white; margin-top:15px;" height="22"><b>IMS</b></p>
+                                    <p alt="logo-sm-light" style="color: white; margin-top:15px;"><i class="ri-database-line font-size-20"></i><b>IMS</b></p>
                                 </span>
-                                <span class="logo-lg">
-
-                                    <p alt="logo-light" style="color: white; margin-top:15px;"  height="20"><b>Inventory Management</b></p>
+                                <span class="logo-lg" style="color: white">
+                                    <i class="ri-database-line font-size-20"></i>
+                                    <span>Inventory Management</span>
                                 </span>
                             </a>
                         </div>
@@ -65,8 +65,7 @@
             <!-- item-->
             <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-1"></i> Profile</a>
             <a class="dropdown-item" href="{{ route('change.password') }}"><i class="ri-wallet-2-line align-middle me-1"></i> Change Password</a>
-            <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
-            <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a>
+            <a class="dropdown-item d-block" href="{{ route('edit.profile') }}"><i class="ri-settings-2-line align-middle me-1"></i> Edit Profile</a>
             <div class="dropdown-divider"></div>
 
             <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>

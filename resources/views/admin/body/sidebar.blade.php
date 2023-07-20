@@ -98,12 +98,6 @@
                                     <li><a href="pages-500.html">Error 500</a></li>
                                 </ul>
                             </li>
-
-
-
-
-
-
                         </ul>
                     </div>
                     <!-- Sidebar -->
