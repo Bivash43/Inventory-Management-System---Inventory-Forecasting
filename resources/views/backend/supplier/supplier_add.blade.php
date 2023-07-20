@@ -14,7 +14,7 @@
 
             <form method="POST" action="{{ isset($supplier) ? route('supplier.update' , $supplier->id) : route('supplier.store') }}" id="myForm">
                 @csrf
-                @if(isset($customer))
+                @if(isset($supplier))
                     @method('PUT')
                 @endif
 

@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
-use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
+use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Pos\ProductController;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\LinearRegression;
@@ -82,8 +84,19 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/product/destroy/{id}', 'destroy')->name('product.destroy');
 });
 
+Route::controller(PurchaseController::class)->group(function () {
+    Route::get('/purchase', 'index')->name('purchase.index');
+    Route::get('/purchase/add', 'create')->name('purchase.create');
+    Route::post('/purchase/store', 'store')->name('purchase.store');
+    Route::get('/purchase/edit/{id}', 'edit')->name('purchase.edit');
+    Route::put('/purchase/update/{id}', 'update')->name('purchase.update');
+    Route::get('/purchase/destroy/{id}', 'destroy')->name('purchase.destroy');
+});
 
-
+Route::controller(Controller::class)->group(function () {
+    Route::get('/get-category', 'getCategory')->name('get-category');
+    Route::get('/get-product', 'getProduct')->name('get-product');
+});
 
 Route::get('/dashboard', function () {
     $suppliers = Supplier::all();

@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::latest()->get();
+        $products = Product::all();
         return view('backend.product.product_all', compact('products'));
     }
 
@@ -24,6 +24,7 @@ class ProductController extends Controller
         $suppliers = Supplier::all();
         $units = Unit::all();
         $categories = Category::all();
+
         return view('backend.product.product_add', compact('suppliers', 'units', 'categories'));
     }
 

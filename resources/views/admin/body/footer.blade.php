@@ -6,7 +6,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Developed by <i class="mdi mdi-heart text-danger"></i><a href="www.linkedin.com/in/bivash-magar-connect">Bivash Thapa Magar</a>
+                                    Developed by <i class="mdi mdi-heart text-danger"></i><a target="_blank" rel="noopener noreferrer" href="//www.linkedin.com/in/bivash-magar-connect">Bivash Thapa Magar</a>
                                 </div>
                             </div>
                         </div>

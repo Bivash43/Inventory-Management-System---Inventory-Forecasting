@@ -103,8 +103,6 @@
 </div><!-- end row -->
 
 <div class="row">
-
-
 <div class="row">
 <div class="col-xl-12">
 <div class="card">
@@ -244,7 +242,28 @@
 </div>
 <!-- end col -->
 
+    <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
+        <h4 class="card-title mb-4">Polar Chart</h4>
+
+        <div class="row text-center">
+            <div class="col-4">
+                <h5 class="mb-0">4852</h5>
+                <p class="text-muted text-truncate">Activated</p>
+            </div>
+            <div class="col-4">
+                <h5 class="mb-0">3652</h5>
+                <p class="text-muted text-truncate">Pending</p>
+            </div>
+            <div class="col-4">
+                <h5 class="mb-0">85412</h5>
+                <p class="text-muted text-truncate">Deactivated</p>
+            </div>
+        </div>
+
+        <canvas id="polarArea" height="600" width="942" style="display: block; height: 300px; width: 471px;" class="chartjs-render-monitor"> </canvas>
+
+    </div>
 
 </div>
 <!-- end row -->
