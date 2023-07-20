@@ -24,7 +24,8 @@ class Controller extends BaseController
     public function getProduct(Request $request)
     {
         $category_id = $request->category_id;
-        $allProduct = Product::where('category_id', $category_id)->get();
+        $supplier_id = $request->supplier_id;
+        $allProduct = Product::where(['category_id' => $category_id, 'supplier_id' => $supplier_id])->get();
         // dd(response()->json($allProduct));
         return response()->json($allProduct);
     }

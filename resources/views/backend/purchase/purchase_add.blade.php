@@ -89,7 +89,6 @@
 </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 
 $(function(){
@@ -105,6 +104,7 @@ $(function(){
                     html+='<option value="'+v.category_id+'">'+v.category.name+'</option>';
                 });
                 $('#category_id').html(html);
+                $('#product_id').html('<option value="">Select Product</option>');
             }
         });
     });
@@ -113,10 +113,12 @@ $(function(){
 $(function(){
     $(document).on('change' , '#category_id' , function(){
         var category_id = $(this).val();
+        var supplier_id = $('#supplier_id').val();
         $.ajax({
             url:"{{ route('get-product') }}",
             type:"GET",
-            data:{category_id:category_id},
+            data:{category_id:category_id,
+                supplier_id:supplier_id},
             success:function(data){
                 var html = '<option value="">Select Product</option>';
                 $.each(data,function(key,v){
