@@ -24,7 +24,7 @@ return new class extends Migration
             $table->double('buying_qty');
             $table->double('unit_price');
             $table->double('buying_price');
-            $table->tinyInteger('status')->default('1')->comment('0=>Pending , 1=Approved');
+            $table->tinyInteger('status')->default('0')->comment('0=>Pending , 1=Approved');
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();

@@ -17,7 +17,6 @@ class Controller extends BaseController
 
         $supplier_id = $request->supplier_id;
         $allCategory = Product::with(['category'])->select('category_id')->where('supplier_id', $supplier_id)->groupBy('category_id')->get();
-        // dd(response()->json($allCategory));
         return response()->json($allCategory);
     }
 
@@ -26,7 +25,6 @@ class Controller extends BaseController
         $category_id = $request->category_id;
         $supplier_id = $request->supplier_id;
         $allProduct = Product::where(['category_id' => $category_id, 'supplier_id' => $supplier_id])->get();
-        // dd(response()->json($allProduct));
         return response()->json($allProduct);
     }
 }
