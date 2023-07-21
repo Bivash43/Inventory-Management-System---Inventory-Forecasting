@@ -89,8 +89,9 @@ Route::controller(PurchaseController::class)->group(function () {
     Route::get('/purchase/add', 'create')->name('purchase.create');
     Route::post('/purchase/store', 'store')->name('purchase.store');
     Route::get('/purchase/edit/{id}', 'edit')->name('purchase.edit');
-    Route::put('/purchase/update/{id}', 'update')->name('purchase.update');
     Route::get('/purchase/destroy/{id}', 'destroy')->name('purchase.destroy');
+    Route::get('/purchase/approve', 'approve')->name('purchase.approve');
+    Route::get('/purchase/approve/{id}', 'approveStatus')->name('purchase.status');
 });
 
 Route::controller(Controller::class)->group(function () {

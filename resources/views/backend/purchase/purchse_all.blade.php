@@ -52,14 +52,26 @@
                             <td> {{ $item->category->name }} </td>
                             <td> {{ $item->buying_qty }} </td>
                             <td> {{ $item->product->name }} </td>
-                            <td> <span class="btn btn-warning">Pending</span></td>
+                            <td>
+                                @if ($item->status==0)
+                                <span class="btn btn-warning">Pending</span>
+                                @endif
+                                @if ($item->status==1)
+                                <span class="btn btn-success">Approved</span>
+                                @endif
+
+                            </td>
                             <td>
                                 {{-- <a href="{{ route('purchase.edit' , $item->id) }}" class="btn btn-info sm" title="Edit Data">
                                     <i class="fas fa-edit"></i> </a> --}}
 
-                                <a href="{{ route('purchase.destroy' , $item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">
-                                    <i class="fas fa-trash-alt"></i> </a>
-
+                                @if ($item->status==0 && isset($approve) )
+                                    <a href="{{ route('purchase.status' , $item->id) }}" class="btn btn-danger sm" title="Approve Data" id="approve">
+                                        <i class="fas fa-check-circle"></i> </a>
+                                @elseif ($item->status==0)
+                                    <a href="{{ route('purchase.destroy' , $item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">
+                                        <i class="fas fa-trash-alt"></i> </a>
+                                @endif
                             </td>
 
                         </tr>

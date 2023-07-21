@@ -78,7 +78,7 @@
                 {{-- end row --}}
 
                 <div class="card-body">
-                    <form action="" method="">
+                    <form action="{{ route('purchase.store') }}" method="POST">
                         @csrf
 
                         <table class="table-sm table-bordered" width="100%" style="border-color: #ddd">
@@ -86,7 +86,7 @@
                             <tr>
                                 <th>Category</th>
                                 <th>Product Name</th>
-                                <th>Unit</th>
+                                <th>Quantity (Kg /Pcs)</th>
                                 <th>Unit Price</th>
                                 <th>Description</th>
                                 <th>Total Price</th>

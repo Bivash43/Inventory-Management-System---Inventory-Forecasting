@@ -71,11 +71,14 @@
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="ri-store-line"></i>
+                                    <i class="mdi-arrange-send-to-back font-size-13"></i>
                                     <span>Manage Purchase</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('purchase.index') }}">All Purchase</a></li>
+                                </ul>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('purchase.approve') }}">Approval Purchase</a></li>
                                 </ul>
                             </li>
 
