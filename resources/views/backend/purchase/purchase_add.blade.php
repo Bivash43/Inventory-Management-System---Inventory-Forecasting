@@ -282,6 +282,4 @@ $(function(){
 });
 
 </script>
-
-
 @endsection
