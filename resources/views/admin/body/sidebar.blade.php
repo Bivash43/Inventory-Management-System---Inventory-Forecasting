@@ -81,6 +81,15 @@
                                     <li><a href="{{ route('purchase.approve') }}">Approval Purchase</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-bill-line font-size-19"></i>
+                                    <span>Manage Invoice</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('invoice.index') }}">All Invoice</a></li>
+                                </ul>
+                            </li>
 
                             <li class="menu-title">Tools</li>
 

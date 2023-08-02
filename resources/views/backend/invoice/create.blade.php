@@ -10,53 +10,43 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="card-title">Add Purchase</h4><br><br>
+            <h4 class="card-title">Add Invoice</h4><br><br>
+
+
+                <div class="col-md-2">
+                    <div class="md-2">
+                        <label for="example-text-input" class="form-label">
+                            Invoice No
+                        </label>
+                        <input type="text" class="form-control" name="invoice_no" id="invoice_no" readonly style="background-color: #ddd" value="{{ $invoice_no }}">
+                    </div>
+                </div>
 
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="md-3">
+                    <div class="col-md-2">
+                        <div class="md-2">
                             <label for="example-text-input" class="form-label">
                                 Date
                             </label>
-                            <input type="date" class="form-control example-date-input" name="date" id="date">
+                            <input type="date" class="form-control example-date-input" name="date" id="date" value="{{ $date }}">
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="md-3">
-                            <label for="example-text-input" class="form-label">
-                                Purchase No.
-                            </label>
-                            <input type="text" class="form-control example-date-input" name="purchase_no" id="purchase_no">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="md-3">
-                            <label for="example-text-input" class="form-label">
-                                Supplier Name
-                            </label>
-                            <select name="supplier_id" id="supplier_id" class="form-select select2" aria-label="Default select example">
-                            <option selected value="">Select Supplier</option>
-                            @foreach ($suppliers as $supplier)
-                            <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
-                            @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="md-3">
                             <label for="example-text-input" class="form-label">
                                 Category Name
                             </label>
                             <select name="category_id" id="category_id" class="form-select select2" aria-label="Default select example">
                             <option selected>Select Category</option>
+                            @foreach ($categories as $item )
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
                             </select>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="md-3">
                             <label for="example-text-input" class="form-label">
                                 Product Name
@@ -67,8 +57,17 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="md-3">
+                    <div class="col-md-2">
+                    <div class="md-2">
+                        <label for="example-text-input" class="form-label">
+                            Stock(KG /Pcs)
+                        </label>
+                        <input type="text" class="form-control" name="current_stock_qty" id="current_stock_qty" readonly style="background-color: #ddd">
+                    </div>
+                </div>
+
+                    <div class="col-md-2">
+                        <div class="md-2">
                             <label for="example-text-input" class="form-label" style="margin-top: 43px"></label>
                             <i class="btn btn-success btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore"> Add More</i>
                             </select>
@@ -243,25 +242,6 @@ $(document).ready(function(){
 <script type="text/javascript">
 
 $(function(){
-    $(document).on('change' , '#supplier_id' , function () {
-        var supplier_id = $(this).val();
-        $.ajax({
-            url:"{{ route('get-category') }}",
-            type:"GET",
-            data:{supplier_id:supplier_id},
-            success:function(data){
-                var html = '<option value="">Select Category</option>';
-                $.each(data,function(key,v){
-                    html+='<option value="'+v.category_id+'">'+v.category.name+'</option>';
-                });
-                $('#category_id').html(html);
-                $('#product_id').html('<option value="">Select Product</option>');
-            }
-        });
-    });
-});
-
-$(function(){
     $(document).on('change' , '#category_id' , function(){
         var category_id = $(this).val();
         var supplier_id = $('#supplier_id').val();
@@ -276,6 +256,24 @@ $(function(){
                     html+='<option value="'+v.id+'">'+v.name+'</option>';
                 });
                 $('#product_id').html(html);
+            }
+        });
+    });
+});
+
+</script>
+
+<script type="text/javascript">
+
+$(function(){
+    $(document).on('change' , '#product_id' , function(){
+        var product_id = $(this).val();
+        $.ajax({
+            url:"{{ route('check-product-stock') }}",
+            type:"GET",
+            data:{product_id:product_id},
+            success:function(data){
+                $('#current_stock_qty').val(data);
             }
         });
     });

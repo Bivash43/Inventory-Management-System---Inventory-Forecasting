@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pos;
 use App\Models\Purchase;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Supplier;
 use App\Models\Unit;
 use Carbon\Carbon;
@@ -88,7 +89,14 @@ class PurchaseController extends Controller
     public function approveStatus($id)
     {
         // dd('here');
-        Purchase::findOrFail($id)->update(['status' => 1]);
+        $purchase = Purchase::findOrFail($id);
+        $product = Product::where('id', $purchase->product_id)->first();
+        $purchase_qty = ((float)($purchase->buying_qty)) + ((float)($product->quantity));
+        $product->quantity = $purchase_qty;
+        if($product->save()){
+            $purchase->status = 1;
+            $purchase->save();
+        }
         $notification = array(
             'message' => 'Purchase Approved Successfully',
             'alert-type' => 'success'

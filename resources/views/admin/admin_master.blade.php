@@ -30,6 +30,8 @@
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
+        <link href="{{ asset('backend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
+
     </head>
 
     <body data-topbar="dark">
@@ -140,6 +142,10 @@
 
         {{-- Handle Bar --}}
         <script src="{{ asset('backend/assets/js/handlebars.js') }}"></script>
+
+        {{-- Select 2 --}}
+        <script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
 
         {{-- Notify --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>

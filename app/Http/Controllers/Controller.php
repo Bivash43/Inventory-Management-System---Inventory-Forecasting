@@ -24,7 +24,18 @@ class Controller extends BaseController
     {
         $category_id = $request->category_id;
         $supplier_id = $request->supplier_id;
-        $allProduct = Product::where(['category_id' => $category_id, 'supplier_id' => $supplier_id])->get();
+        if (empty($supplier_id)) {
+            $allProduct = Product::where('category_id', $category_id)->get();
+        } else {
+            $allProduct = Product::where(['category_id' => $category_id, 'supplier_id' => $supplier_id])->get();
+        }
         return response()->json($allProduct);
+    }
+
+    public function checkStock(Request $request)
+    {
+        $product_id = $request->product_id;
+        $stock = Product::where('id', $product_id)->first()->quantity;
+        return response()->json($stock);
     }
 }

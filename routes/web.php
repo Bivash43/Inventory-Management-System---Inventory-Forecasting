@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
@@ -97,6 +98,16 @@ Route::controller(PurchaseController::class)->group(function () {
 Route::controller(Controller::class)->group(function () {
     Route::get('/get-category', 'getCategory')->name('get-category');
     Route::get('/get-product', 'getProduct')->name('get-product');
+    Route::get('/check-product-stock', 'checkStock')->name('check-product-stock');
+});
+
+Route::controller(InvoiceController::class)->group(function () {
+    Route::get('/invoice', 'index')->name('invoice.index');
+    Route::get('/invoice/add', 'create')->name('invoice.create');
+    Route::post('/invoice/store', 'store')->name('invoice.store');
+    Route::get('/invoice/edit/{id}', 'edit')->name('invoice.edit');
+    Route::put('/invoice/update/{id}', 'update')->name('invoice.update');
+    Route::get('/invoice/destroy/{id}', 'destroy')->name('invoice.destroy');
 });
 
 Route::get('/dashboard', function () {
