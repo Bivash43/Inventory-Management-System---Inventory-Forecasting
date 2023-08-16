@@ -33,7 +33,7 @@
                             <th>Invoice No</th>
                             <th>Date</th>
                             <th>Description</th>
-                            <th>Action</th>
+                            <th>Amount</th>
 
                         </thead>
 
@@ -43,11 +43,11 @@
                         	@foreach($allData as $key => $item)
                         <tr>
                             <td> {{ $key+1}} </td>
-                            <td> {{ $item->supplier->name }} </td>
+                            <td> {{ $item->payment->customer->name }} </td>
                             <td> {{ $item->invoice_no}} </td>
                             <td> {{ date('Y-m-d', strtotime($item->date)) }} </td>
                             <td> {{ $item->description }} </td>
-                            <td>
+                            {{-- <td>
                                 @if ($item->status==0)
                                 <span class="btn btn-warning">Pending</span>
                                 @endif
@@ -55,18 +55,19 @@
                                 <span class="btn btn-success">Approved</span>
                                 @endif
 
-                            </td>
+                            </td> --}}
                             <td>
+                                Rs.{{ $item->payment->total_amount }}
                                 {{-- <a href="{{ route('purchase.edit' , $item->id) }}" class="btn btn-info sm" title="Edit Data">
                                     <i class="fas fa-edit"></i> </a> --}}
 
-                                @if ($item->status==0 && isset($approve) )
+                                {{-- @if ($item->status==0 && isset($approve) )
                                     <a href="{{ route('purchase.status' , $item->id) }}" class="btn btn-danger sm" title="Approve Data" id="approve">
                                         <i class="fas fa-check-circle"></i> </a>
                                 @elseif ($item->status==0)
                                     <a href="{{ route('purchase.destroy' , $item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">
                                         <i class="fas fa-trash-alt"></i> </a>
-                                @endif
+                                @endif --}}
                             </td>
 
                         </tr>
