@@ -31,7 +31,6 @@
                                                 <div class="invoice-title">
                                                     <h4 class="float-end font-size-16"><strong>Invoice No # {{ $invoice->invoice_no }}</strong></h4>
                                                     <h3>
-                                                        <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo" height="24"/>
                                                         Inventory Management System
                                                     </h3>
                                                 </div>
