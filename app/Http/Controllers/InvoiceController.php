@@ -10,6 +10,7 @@ use App\Models\Customer;
 use App\Models\InvoiceDetail;
 use App\Models\Payment;
 use App\Models\PaymentDetail;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class InvoiceController extends Controller
 {
     public function index()
     {
-        $allData = Invoice::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+        $allData = Invoice::orderBy('date', 'desc')->orderBy('id', 'desc')->where('status', '1')->get();
         return view('backend.invoice.index', compact('allData'));
     }
 
@@ -121,6 +122,65 @@ class InvoiceController extends Controller
             'message' => 'Invoice Data Inserted Successfully',
             'status' => 'success',
         );
-        return redirect()->route('invoice.index')->with($notification);
+        return redirect()->route('invoice.pending')->with($notification);
+    }
+
+    public function PendingList()
+    {
+        $allData = Invoice::orderBy('date', 'desc')->orderBy('id', 'desc')->where('status', '0')->get();
+        return view('backend.invoice.pending', compact('allData'));
+    }
+
+    public function destroy($id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $invoice->delete();
+        InvoiceDetail::where('invoice_id', $invoice->id)->delete();
+        Payment::where('invoice_id', $invoice->id)->delete();
+        PaymentDetail::where('invoice_id', $invoice->id)->delete();
+        $notification = array(
+            'message' => 'Invoice Data Deleted Successfully',
+            'status' => 'success',
+        );
+        return redirect()->back()->with($notification);
+    }
+
+    public function approveStatus($id)
+    {
+        $invoice = Invoice::with('invoice_details')->findOrFail($id);
+        return view('backend.invoice.approve', compact('invoice'));
+    }
+
+    public function invoiceApprove(Request $request, $id)
+    {
+        foreach ($request->selling_qty as $key => $val) {
+            $invoice_details = InvoiceDetail::where('id', $key)->first();
+            $product = Product::where('id', $invoice_details->product_id)->first();
+            if ($product->quantity < $request->selling_qty[$key]) {
+                $notification = array(
+                    'message' => 'Sorry, ' . $product->name . ' Quantity Not Available',
+                    'status' => 'error',
+                );
+                return redirect()->back()->with($notification);
+            }
+        }
+        $invoice = Invoice::findOrFail($id);
+        $invoice->status = '1';
+        $invoice->updated_by = Auth::user()->id;
+        DB::transaction(function () use ($invoice, $request, $id) {
+            foreach ($request->selling_qty as $key => $val) {
+                $invoice_details = InvoiceDetail::where('id', $key)->first();
+                $product = Product::where('id', $invoice_details->product_id)->first();
+                $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
+                $product->save();
+            }
+            $invoice->save();
+        });
+
+        $notification = array(
+            'message' => 'Invoice Approved Successfully',
+            'status' => 'success',
+        );
+        return redirect()->route('invoice.pending')->with($notification);
     }
 }

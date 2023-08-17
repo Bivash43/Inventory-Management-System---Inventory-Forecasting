@@ -108,6 +108,9 @@ Route::controller(InvoiceController::class)->group(function () {
     Route::get('/invoice/edit/{id}', 'edit')->name('invoice.edit');
     Route::put('/invoice/update/{id}', 'update')->name('invoice.update');
     Route::get('/invoice/destroy/{id}', 'destroy')->name('invoice.destroy');
+    Route::get('/invoice/pending/list', 'PendingList')->name('invoice.pending');
+    Route::get('/invoice/approve/{id}', 'approveStatus')->name('invoice.status');
+    Route::post('/invoice/approve/action/{id}', 'invoiceApprove')->name('invoice.approve');
 });
 
 Route::get('/dashboard', function () {

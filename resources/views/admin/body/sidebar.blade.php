@@ -89,6 +89,9 @@
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('invoice.index') }}">All Invoice</a></li>
                                 </ul>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('invoice.pending') }}">Approval Invoice</a></li>
+                                </ul>
                             </li>
 
                             <li class="menu-title">Tools</li>
