@@ -17,7 +17,6 @@
 
                         @php
                             $payment = App\Models\Payment::where('invoice_id', $invoice->id)->first();
-
                         @endphp
 
                         <div class="row">
@@ -74,8 +73,8 @@
                                                         <td class="text-center">{{ $details->product->name }}</td>
                                                         <td class="text-center" style="background-color: #8B008B">{{ $details->product->quantity }}</td>
                                                         <td class="text-center">{{ $details->selling_qty }}</td>
-                                                        <td class="text-center">{{ $details->unit_price }}</td>
-                                                        <td class="text-center">{{ $details->selling_price }}</td>
+                                                        <td class="text-center">Rs.{{ $details->unit_price }}</td>
+                                                        <td class="text-center">Rs.{{ $details->selling_price }}</td>
                                                     </tr>
                                                     @php
                                                         $total_sum += $details->selling_price;
@@ -83,23 +82,23 @@
                                                     @endforeach
                                                     <tr>
                                                         <td colspan="6">Sub Total</td>
-                                                        <td>{{ $total_sum }}</td>
+                                                        <td>Rs.{{ $total_sum }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="6">Discount</td>
-                                                        <td>{{ $payment->discount }}</td>
+                                                        <td>Rs.{{ $payment->discount }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="6">Paid Amount</td>
-                                                        <td>{{ $payment->paid_amount }}</td>
+                                                        <td>Rs.{{ $payment->paid_amount }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="6">Due Amount</td>
-                                                        <td>{{ $payment->due_amount }}</td>
+                                                        <td>Rs.{{ $payment->due_amount }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="6">Grand Amount</td>
-                                                        <td>{{ $payment->total_amount }}</td>
+                                                        <td>Rs.{{ $payment->total_amount }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

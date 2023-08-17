@@ -111,6 +111,8 @@ Route::controller(InvoiceController::class)->group(function () {
     Route::get('/invoice/pending/list', 'PendingList')->name('invoice.pending');
     Route::get('/invoice/approve/{id}', 'approveStatus')->name('invoice.status');
     Route::post('/invoice/approve/action/{id}', 'invoiceApprove')->name('invoice.approve');
+    Route::get('/print/invoice/list', 'PrintInvoiceList')->name('print.invoice.list');
+    Route::get('/invoice/print/{id}', 'PrintInvoice')->name('print.invoice');
 });
 
 Route::get('/dashboard', function () {
