@@ -125,6 +125,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('saleinfo', SaleInfoController::class);
+Route::post('saleinfo/predictProduct', [SaleInfoController::class, 'predictProduct'])->name('saleinfo.predictProduct');
+Route::post('saleinfo/predictCategory', [SaleInfoController::class, 'predictCategory'])->name('saleinfo.predictCategory');
 
 require __DIR__ . '/auth.php';
 
@@ -132,16 +134,3 @@ require __DIR__ . '/auth.php';
 // Route::get('/contact', function () {
 //     return view('contact');
 // });
-
-
-
-
-Route::get('/predict-demand', function () {
-    $linearRegression = new LinearRegression();
-    $X = [1260, 1300, 1380, 1450, 1530, 1610, 1600, 1673, 1757,];
-    $y = [26.1, 29.4, 30.1, 31.4, 37.6, 45, 40, 52, 55];
-    $linearRegression->train($X, $y);
-    $newX = [1421];
-    $predictedDemand = $linearRegression->predict($newX);
-    echo "Predicted demand for Year 6: $predictedDemand[0] metric tons\n";
-});

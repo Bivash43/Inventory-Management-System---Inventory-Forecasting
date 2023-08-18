@@ -105,17 +105,7 @@
                                     <span>Statistics</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('saleinfo.index') }}">Table</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="ri-funds-box-line"></i>
-                                    <span>Stocks Status</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="pages-starter.html">Predict</a></li>
+                                    <li><a href="{{ route('saleinfo.index') }}">Predict Stock</a></li>
                                 </ul>
                             </li>
                         </ul>
