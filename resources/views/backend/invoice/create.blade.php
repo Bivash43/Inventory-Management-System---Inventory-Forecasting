@@ -135,7 +135,7 @@
                                 <label>Customer Name</label>
                                 <select name="customer_id" id="customer_id" class="form-select">
                                     <option value="">Select Customer</option>
-                                    <option value="1">New Customer</option>
+                                    <option value="0">New Customer</option>
                                     @foreach ($customers as $data )
                                     <option value="{{ $data->id }}">{{ $data->name }}-{{ $data->mobile_no }}</option>
                                     @endforeach
@@ -344,7 +344,7 @@ $(function(){
 
     $(document).on('change', '#customer_id', function(){
         var paid_status = $(this).val();
-        if (paid_status == "1"){
+        if (paid_status == "0"){
             $('.newCustomer').show();
         }else{
             $('.newCustomer').hide();

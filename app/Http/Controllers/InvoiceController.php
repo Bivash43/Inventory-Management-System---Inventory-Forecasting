@@ -11,6 +11,7 @@ use App\Models\InvoiceDetail;
 use App\Models\Payment;
 use App\Models\PaymentDetail;
 use App\Models\Product;
+use App\Models\SaleInfo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -173,6 +174,13 @@ class InvoiceController extends Controller
                 $product = Product::where('id', $invoice_details->product_id)->first();
                 $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
                 $product->save();
+
+                $saleInfo = new SaleInfo();
+                $saleInfo->product_id = $invoice_details->product_id;
+                $saleInfo->category_id = $invoice_details->category_id;
+                $saleInfo->quantity = $request->selling_qty[$key];
+                $saleInfo->sold_date = Carbon::now();
+                $saleInfo->save();
             }
             $invoice->save();
         });
