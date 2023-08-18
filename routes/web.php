@@ -11,6 +11,7 @@ use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\ProductController;
+use App\Http\Controllers\SaleInfoController;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\LinearRegression;
@@ -122,6 +123,8 @@ Route::get('/dashboard', function () {
     $categories = Category::all();
     return view('admin.index', compact('suppliers', 'customers', 'products', 'categories'));
 })->middleware(['auth'])->name('dashboard');
+
+Route::resource('saleinfo', SaleInfoController::class);
 
 require __DIR__ . '/auth.php';
 

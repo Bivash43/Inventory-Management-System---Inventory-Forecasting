@@ -30,6 +30,8 @@
 
         <link href="{{ asset('backend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
 
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <body data-topbar="dark">
@@ -102,6 +104,8 @@
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+
+
 <script>
  @if(Session::has('message'))
  var type = "{{ Session::get('alert-type','info') }}"
@@ -147,6 +151,16 @@
 
         {{-- Notify --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
+        <!-- Chart JS -->
+        <script src="assets/libs/chart.js/Chart.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="assets/js/pages/chartjs.init.js"></script>
+
+
+        <script src="assets/js/app.js"></script>
+
+
     </body>
 
 </html>

@@ -105,7 +105,7 @@
                                     <span>Statistics</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="auth-login.html">Table</a></li>
+                                    <li><a href="{{ route('saleinfo.index') }}">Table</a></li>
                                 </ul>
                             </li>
 
