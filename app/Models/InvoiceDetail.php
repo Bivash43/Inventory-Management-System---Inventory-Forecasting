@@ -22,22 +22,23 @@ class InvoiceDetail extends Model
 
     public static function salesIndex()
     {
-        $result = static::selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, SUM(selling_price) as total_amount')
+        $result = InvoiceDetail::selectRaw('YEAR(date) as year, MONTH(date) as month, SUM(selling_price) as total_amount')
             ->where('status', 1)
             ->groupBy('year', 'month')
             ->orderBy('year', 'asc')
             ->orderBy('month', 'asc')
             ->get();
 
+
         $data = [];
+
         foreach ($result as $row) {
             $year = $row->year;
             $month = date('F', mktime(0, 0, 0, $row->month, 1)); // Convert month number to full month name
-            $totalAmount = $row->total_amount;
+            $totalAmount =  $row->total_amount;
 
             $data["$year/$month"] = $totalAmount;
         }
-
         return $data;
     }
 }

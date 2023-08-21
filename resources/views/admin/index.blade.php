@@ -31,7 +31,7 @@
             <div class="flex-grow-1">
                 <p class="text-truncate font-size-14 mb-2">Total Suppliers</p>
                 <h4 class="mb-2">{{ $suppliers->count() }}</h4>
-                <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from previous period</p>
+                {{-- <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from previous period</p> --}}
             </div>
             <div class="avatar-sm">
                 <span class="avatar-title bg-light text-primary rounded-3">
@@ -50,7 +50,7 @@
             <div class="flex-grow-1">
                 <p class="text-truncate font-size-14 mb-2">Total Customers</p>
                 <h4 class="mb-2">{{ $customers->count() }}</h4>
-                <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from previous period</p>
+                {{-- <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from previous period</p> --}}
             </div>
             <div class="avatar-sm">
                 <span class="avatar-title bg-light text-success rounded-3">
@@ -69,7 +69,7 @@
             <div class="flex-grow-1">
                 <p class="text-truncate font-size-14 mb-2">Total Products</p>
                 <h4 class="mb-2">{{ $products->count() }}</h4>
-                <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from previous period</p>
+                {{-- <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from previous period</p> --}}
             </div>
             <div class="avatar-sm">
                 <span class="avatar-title bg-light text-primary rounded-3">
@@ -88,7 +88,7 @@
             <div class="flex-grow-1">
                 <p class="text-truncate font-size-14 mb-2">Total Product Categories</p>
                 <h4 class="mb-2">{{ $categories->count() }}</h4>
-                <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p>
+                {{-- <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p> --}}
             </div>
             <div class="avatar-sm">
                 <span class="avatar-title bg-light text-success rounded-3">
@@ -102,7 +102,7 @@
 </div><!-- end col -->
 </div><!-- end row -->
 
-<div class="row">
+{{-- <div class="row">
 <div class="row">
 <div class="col-xl-12">
 <div class="card">
@@ -110,7 +110,7 @@
         <h4 class="card-title mb-4">Inventory Status</h4>
     </div><!-- end card -->
 </div><!-- end card -->
-</div>
+</div> --}}
 <!-- end col -->
 
 

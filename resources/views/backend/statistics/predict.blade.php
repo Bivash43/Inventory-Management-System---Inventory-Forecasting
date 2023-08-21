@@ -24,7 +24,7 @@
                             <div class="col-lg-7">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h3 class="card-title mb-4">Revenue Per Month</h3>
+                                        <h3 class="card-title mb-4">Prediction For Next Month</h3>
                                         <canvas id="lineChart" height="200"></canvas>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="card-title mb-4">Predection For Month</h4>
+                                        {{-- <h4 class="card-title mb-4">Predection For Month</h4> --}}
 
                                         <div class="row text-center">
                                             <div class="col-mb-4">

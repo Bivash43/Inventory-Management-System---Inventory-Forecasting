@@ -19,7 +19,7 @@ use App\Models\Product;
 use App\Models\Supplier;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 
